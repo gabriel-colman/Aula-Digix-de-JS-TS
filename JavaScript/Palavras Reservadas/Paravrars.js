@@ -33,3 +33,4 @@ let [nome4, ...resto] = lista2; // desestrutura o array
 console.log(nome4); // imprime o primeiro nome
 
 console.log(resto); // imprime o resto do array
+
