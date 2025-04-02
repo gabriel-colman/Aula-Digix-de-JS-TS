@@ -40,7 +40,7 @@
 
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            const srecaptchaResponse = grecaptcha.getResponse(); // grecaptcha é a função global do reCAPTCHA
+            const recaptchaResponse = grecaptcha.getResponse(); // grecaptcha é a função global do reCAPTCHA
 
             if (recaptchaResponse.length === 0) {
                 alert('Por favor, verifique se você não é um robô.');
@@ -68,3 +68,5 @@
 </body>
 
 </html>
+
+<!-- npx serve . -->
