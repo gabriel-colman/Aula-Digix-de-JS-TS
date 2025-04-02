@@ -1,0 +1,13 @@
+{
+    "name": "heranca",
+    "version": "1.0.0",
+    "description": "Exercício de herança em JavaScript",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
+    },
+    "author": "Seu Nome",
+    "license": "ISC",
+    "type": "commonjs"
+}
