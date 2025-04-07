@@ -18,16 +18,19 @@
 
     <!-- script ts com o tratamento do exemplo passado -->
     <script type="text/typescript">
-    const input = document.getElementById("nome");  
-    if (input && input instanceof HTMLInputElement) {      
-        const nome = input.value.trim(); 
- 
-        if (nome === "") {      
-            alert("Por favor, digite seu nome.");
-        } else {
-            console.error("Elemento com id 'saudacao' não encontrado.");
-        }
-    }
+        document.getElementById("btn")?.addEventListener("click", () => {
+            const input = document.getElementById("nome");
+            if (input && input instanceof HTMLInputElement) {
+              const nome = input.value.trim();
+              if (nome === "") {
+                alert("Por favor, digite seu nome.");
+              } else {
+                alert(`Olá, ${nome}!`);
+              }
+            } else {
+              alert("Elemento 'nome' não encontrado.");
+            }
+          });
      </script>
 
      <!-- Tranformar ele em TS que foi construido, transforma em JS -->
