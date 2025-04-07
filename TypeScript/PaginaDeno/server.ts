@@ -1,12 +1,11 @@
-//  Vou utilizar o Deno para criar um servidor HTTP simples
-import { serve } from "https://deno.land/std@0.207.0/http/file_server/mod.ts"; //Ele importa o módulo de servidor de arquivos do Deno, com a função serve
+import { serveDir } from "https://deno.land/std@0.207.0/http/file_server.ts";
 
-Deno.serve(async (req) => {
-    return await serve(req, { // await ele usado para espera resposta do servidor
-        fsRoot: "./public", // O diretório público onde os arquivos estão localizados
-        urlRoot: "", // O diretório raiz da URL
-        showDirListing: true, // Exibir listagem de diretório
-    });
+Deno.serve((req) => {
+  return serveDir(req, {
+    fsRoot: "public",   // ← Serve a pasta correta
+    urlRoot: "",
+    showDirListing: true,
+  });
 }); // O ponto e vírgula no final é opcional, mas é uma boa prática para evitar erros em alguns casos.
 
 // deno run --allow-net server.ts
