@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag - Arrastar</title>
+
+    <style>
+        #draggable {
+            width: 200px;
+            height: 200px;
+            background-color: #3498db;
+            cursor: pointer; /* cursor para indicar que es clickeable */
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()  => { // Aqui esta esperando o dom ser carregad0
+            const draggable = document.getElementById('draggable'); // Aqui estamos pegando o elemento com id draggable
+
+            draggable.addEventListener('mousedown', (event) => {
+                let shiftX = event.clientX - draggable.getBoundingClientRect().left; // Aqui estamos pegando a posição do mouse em relação ao elemento draggable
+                let shiftY = event.clientY - draggable.getBoundingClientRect().top; // Aqui estamos pegando a posição do mouse em relação ao elemento draggable
+
+                draggable.style.position = 'absolute'; // Aqui estamos mudando a posição do elemento draggable para absoluta
+                draggable.style.zIndex = 1000; // Aqui estamos mudando o z-index do elemento draggable para 1000
+                document.body.append(draggable); // Aqui estamos adicionando o elemento draggable ao body
+
+                moveAt(event.pageX, event.pageY); // Aqui estamos chamando a função moveAt passando a posição do mouse
+
+                function moveAt(pageX, pageY) { // Aqui estamos criando a função moveAt
+                    draggable.style.left = pageX - shiftX + 'px'; // Aqui estamos mudando a posição do elemento draggable para a posição do mouse menos a posição do elemento draggable
+                    draggable.style.top = pageY - shiftY + 'px'; // Aqui estamos mudando a posição do elemento draggable para a posição do mouse menos a posição do elemento draggable
+                }
+
+                function onMouseMove(event) { // Aqui estamos criando a função onMouseMove
+                    moveAt(event.pageX, event.pageY); // Aqui estamos chamando a função moveAt passando a posição do mouse
+                }
+
+                document.addEventListener('mousemove', onMouseMove); // Aqui estamos adicionando um evento de mousemove no documento
+
+                draggable.addEventListener('mouseup', () => { // Aqui estamos adicionando um evento de mouseup no elemento draggable
+                    document.removeEventListener('mousemove', onMouseMove); // Aqui estamos removendo o evento de mousemove do documento
+                    draggable.onmouseup = null; // Aqui estamos removendo o evento de mouseup do elemento draggable
+                });
+
+            }); // Aqui estamos adicionando um evento de mousedown no elemento draggable
+
+            // draggable.ondragstart = () => { // Aqui estamos adicionando um evento de dragstart no elemento draggable
+            //     return false; // Aqui estamos retornando false para evitar o comportamento padrão do dragstart
+            // };
+
+
+        })
+
+    </script>
+</head>
+<body>
+    <div id="draggable"></div>
+</body>
+</html>

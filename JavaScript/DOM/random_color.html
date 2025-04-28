@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramdom color visualizar </title>
+    <style>
+        #color {
+            cursor: pointer; /* pointer para indicar que es clickeable */
+            width: 300px; /* ancho del elemento */
+            height: 300px; /* alto del elemento */
+            background-color: #000; /*  */
+        }
+
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() { // aqui estamos esperando o Dom ser carregado
+            const color = document.getElementById('color'); // aqui estamos pegando o elemento com id color
+
+            color.addEventListener('click', function() { // aqui estamos adicionando um evento de click no elemento color
+                const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16); // aqui estamos gerando uma cor aleatoria
+                color.style.backgroundColor = randomColor; // aqui estamos mudando a cor de fundo do elemento color
+                console.log(randomColor); // aqui estamos imprimindo a cor no console
+            
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    <div id="color"></div>
+</body>
+</html>
