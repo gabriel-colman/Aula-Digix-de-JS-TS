@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceito 2 Jsx</title>
+    <!--crossorigin é um atributo que indica que o recurso deve ser carregado com  credenciais (cookies , cabeçahos http)  -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Trancopilador que ele vai transformas as requisções js -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        let rootElement = document.getElementById('root');
+
+        // function Welcome(props) {
+        //     return <h1>Bem vindo</h1>
+        // }
+
+        // ReactDOM.render(<Welcome />, rootElement);
+
+        // function Welcome(props) {
+        //     // return <h1>{props.name}</h1>
+        //      return <h1>{props.name} tem {parseInt(props.idade)} anos</h1>
+        // }
+
+        // ReactDOM.render(<Welcome name="Gabriel" idade="20"/>, rootElement);
+
+
+        function Welcome(props) {
+            // return <h1>{props.name}</h1>
+            return <h1>{props.name} tem {parseInt(props.idade)} anos</h1>
+        }
+
+        const App = () => {
+            return (
+                <div>
+                    <Welcome name="Gabriel" idade="20" />
+                    <Welcome name="Joao" idade="10" />
+                    <Welcome name="Maria" idade="30" />
+
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, rootElement);
+
+    </script>
+
+</body>
+
+</html>
