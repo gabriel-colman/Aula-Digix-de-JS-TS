@@ -37,45 +37,40 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        // 1. Variaveis e renderização basica 
-        const titulo = "Primeiro React";
-        const Subtitulo = "Segundo React";
+        function ListarTarefas() {
+            const [tarefa] = React.useState([ // hook
+                "Aprender React",
+                "Estudar componentes",
+                "Praticar JSX"
+            ]);
 
-        const elementoJSX = (
-            <div className="componente">
-                <h1> {titulo} </h1>
-                <p> {Subtitulo} </p>
-            </div>
-        );
-
-        function Contador() {
-            // Declaração do estado (valor inicial 0)
-            const [contador, setContador] = React.useState(0);
-
+            const [mostrarLista, setMostrarLista] = React.useState(true); // para lista ser visivel
 
             return (
                 <div className="componente">
-                    <h2>Exemplo de Estado</h2>
+                    <h2>Lista Condicional</h2>
                     <div className="props-box">
-                        <p>Você clicou {contador} vezes</p>
-                        <button onClick={() => setContador(contador + 1)}>
-                            Incrementar
+                        <button onClick={() => setMostrarLista(!mostrarLista)}>
+                            {mostrarLista ? "Esconder" : "Mostrar"} lista
                         </button>
-                        <button onClick={() => setContador(contador - 1)}>
-                            Zerar
-                        </button>
+                        {mostrarLista && (
+                            <ul>
+                                {tarefa.map((tarefas, index) => (  // map é tipo listar as tarefas que vamos atribuir na variavel tarefa
+                                    <li key={index}> {tarefas}</li>
+                                ))}
+
+                            </ul>
+                        )}
                     </div>
                 </div>
-            );
+            )
         }
 
 
         function App() {
             return (
                 <div>
-                    {elementoJSX}
-
-                    <Contador />
+                    <ListarTarefas />
                 </div>
             )
         }
