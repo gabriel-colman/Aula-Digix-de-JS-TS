@@ -10,6 +10,7 @@ function App() {
   const [operator, setOperator] = useState(null);
   const [waitingForSecondOperand, setWaitingForSecondOperand] = useState(false);
 
+  // Essa função é responsável por lidar com a entrada de dígitos
   const inputDigit = (digit) => { // aqui estou criando a função inputDigit
     if (waitingForSecondOperand) { // aqui estou verificando se o valor de waitingForSecondOperand é true
       setDisplay(String(digit)); //  aqui estou convertendo o valor digit para string
@@ -19,6 +20,7 @@ function App() {
     }
   };
 
+  // Essa função é responsável por lidar com a entrada de ponto decimal
   const inputDecimal = () => { // aqui estou criando a função inputDecimal
     if (waitingForSecondOperand) { // aqui estou verificando se o valor de waitingForSecondOperand é true
       setDisplay('0.'); // aqui estou mudando o valor de display para 0.
@@ -31,6 +33,7 @@ function App() {
     }
   };
 
+  // Essa função é responsável por lidar com a entrada de operadores, e zerar a calculadora
   const clearDisplay = () => { // aqui crear faz o mesmo que o AC
     setDisplay('0'); // aqui estou mudando o valor de display para 0
     setFirstOperand(null); // aqui estou mudando o valor de firstOperand para null
@@ -38,6 +41,7 @@ function App() {
     setWaitingForSecondOperand(false); // aqui estou mudando o valor de waitingForSecondOperand para false
   };
 
+  // Essa função é responsável por lidar com a entrada de operadores, e transformar o valor de display em float
   const performOperation = (nextOperator) => { // aqui estou criando a função performOperation
     const inputValue = parseFloat(display); // aqui estou convertendo o valor de display para float
     if (firstOperand === null) { // aqui estou verificando se o valor de firstOperand é null
@@ -52,6 +56,7 @@ function App() {
     setOperator(nextOperator); // aqui estou mudando o valor de operator para o valor de nextOperator
   };
 
+  // Essa função é responsável por calcular o resultado da operação
   const calculate = (firstOperand, secondOperand, operator) => { // aqui estou criando a função calculate
     switch (operator) { // aqui estou criando o switch para verificar o valor de operator
       case '+':   
