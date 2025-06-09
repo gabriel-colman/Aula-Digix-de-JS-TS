@@ -1,0 +1,6 @@
+Comando apra instalar o compilador python:
+pip install pyinstaller
+
+
+Comando para instalar python
+python -m pip install --upgrade pip
